@@ -9,7 +9,7 @@
 
 <body>
     <div id="app">
-        <welcome></welcome>
+        <welcome :title="'{{$title}}'"></welcome>
     </div>
     <script type="text/javascript" src="js/app.js"></script>
 </body>
