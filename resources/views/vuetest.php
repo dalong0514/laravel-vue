@@ -7,6 +7,7 @@
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="http://yui.yahooapis.com/3.18.1/build/yui/yui-min.js"></script>
     <div id="app">
         {{ message }}
     </div>
@@ -19,6 +20,15 @@
             }
         })
     </script>
-    
+
+    <script>
+    // Create a YUI sandbox on your page.
+    YUI().use('node', 'event', function (Y) {
+        // The Node and Event modules are loaded and ready to use.
+        // Your code goes here!
+        console.log('dalong');
+    });
+    </script>
 </body>
+
 </html>
