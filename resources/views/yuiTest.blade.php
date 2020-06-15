@@ -9,17 +9,33 @@
     <script src="http://yui.yahooapis.com/3.18.1/build/yui/yui-min.js"></script>
 
     <script>
+        // All our functions and tests go here
         function convertCurrency(amount, rateOfConversion) {
             // Business logic to convert currency
+            let toCurrencyAmount = 0;
+            return toCurrencyAmount;
         }
         // Create a new YUI instance and populate it with the required modules.
         YUI().use('test-console', function (Y) {
             // Test is available and ready for use. Add implementation
             // code here.
+            let testCase = new Y.Test.Case({
+                testCurrencyConversion: function() {
+                    let expectedResult = 1.59;
+                    let actualResult = convertCurrency(100, 1/63);
+                    Y.Assert.areEqual(expectedResult, actualResult, 
+                    '100 INR should be equal to $ 1.59');
+                }
+            });
 
             // in the container (div here) with id testLogs.
-            new Y.Test.Console().render('#testLogs');
+            new Y.Test.Console({
+                newstOnTop: false,
+                width: '800px',
+                height: '600px',
+            }).render('#testLogs');
 
+            Y.Test.Runner.add(testCase);
             // run the tests
             Y.Test.Runner.run();
         });
