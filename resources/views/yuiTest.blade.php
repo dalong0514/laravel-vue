@@ -13,6 +13,8 @@
         function convertCurrency(amount, rateOfConversion) {
             // Business logic to convert currency
             let toCurrencyAmount = 0;
+            toCurrencyAmount = rateOfConversion * amount;
+            toCurrencyAmount = Number.parseFloat(toCurrencyAmount).toFixed(2);
             return toCurrencyAmount;
         }
         // Create a new YUI instance and populate it with the required modules.
