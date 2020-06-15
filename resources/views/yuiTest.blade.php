@@ -22,10 +22,14 @@
             // Test is available and ready for use. Add implementation
             // code here.
             let testCase = new Y.Test.Case({
-                testCurrencyConversion: function() {
-                    let expectedResult = 1.59;
-                    let actualResult = convertCurrency(100, 1/63);
-                    Y.Assert.areEqual(expectedResult, actualResult, 
+                setUp: () => {
+                    this.expectedResult = 1.59;
+                },
+                tearDown: () => {
+                    delete this.expectedResult;
+                },
+                testCurrencyConversion: () => {
+                    Y.Assert.areEqual(expectedResult, convertCurrency(100, 1/63), 
                     '100 INR should be equal to $ 1.59');
                 }
             });
