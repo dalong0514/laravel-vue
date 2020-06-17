@@ -3,6 +3,7 @@
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
+use App\Box;
 
 class StackTest extends TestCase
 {
@@ -11,13 +12,33 @@ class StackTest extends TestCase
      *
      * @return void
      */
-    public function testPushAndPop()
-    {
-        $stack = [];
-        $this->assertEquals(0, count($stack));
+    public function testHasItemBox() {
+        $box = new Box([
+            'cat',
+            'toy',
+            'torch'
+        ]);
+        $this->assertTrue($box->has('toy'));
+        $this->assertFalse($box->has('dalong'));
+    }
 
-        array_push($stack, 'dalong');
-        $this->assertEquals(1, count($stack));
-        $this->assertEquals('dalong', $stack[0]);
+    public function testTakeOneFromTheBox() {
+        $box = new Box(['torch']);
+        $this->assertEquals('torch', $box->takeOne());
+        $this->assertNull($box->takeOne());
+    }
+
+    public function testStartWithALetter() {
+        $box = new Box([
+            'toy',
+            'torch',
+            'ball',
+            'cat',
+            'tissue'
+        ]);
+        $result = $box->startWith('t');
+        $this->assertCount(3, $result);
+        $this->assertContains('toy', $result);
+        $this->assertEmpty($box->startWith('d'));
     }
 }
