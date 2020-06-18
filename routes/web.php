@@ -21,9 +21,12 @@ Route::get('/vuetest', function () {
     return view('vuetest');
 });
 
-Route::get('/test', function () {
-    return view('yuiTest');
+Route::get('/codetest', function () {
+    return view('codeTest');
 });
+
+Route::get('/test','TestController@codeTest');
+
 Route::get('/page', function () {
     return view('page',
         [
