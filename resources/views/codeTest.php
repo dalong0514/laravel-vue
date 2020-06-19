@@ -149,8 +149,10 @@ class ShopProductWriter {
     }
 }
 
+
+
 $product = new ShopProduct('My Antonia', 'Willa', 'Cather', '6.6');
-print $product->calculateTax(200) . "\n";
+print $product->calculateTax(100) . "\n";
 $product1 = new ShopProduct('My Antonia', 'Willa', 'Cather', '8.6');
 print "The price is {$product->getPrice()}\n";
 
