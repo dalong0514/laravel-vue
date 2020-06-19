@@ -102,10 +102,19 @@ class BookProduct extends ShopProduct {
 }
 
 class ShopProductWriter {
-    public function write(ShopProduct $shopProduct) {
-        $str = $shopProduct->title . ': '
-            . $shopProduct->getProducer()
-            . '(' . $shopProduct->price . ")\n";
+    private $products = [];
+
+    public function addProduct(ShopProduct $shopProduct) {
+        $this->products[] = $shopProduct;
+    }
+
+    public function write() {
+        $str = "";
+        foreach ($this->products as $shopProduct) {
+            $str .= "{$shopProduct->title}: ";
+            $str .= $shopProduct->getProducer();
+            $str .= " ({$shopProduct->getPrice()}\n";
+        }
         print $str;
     }
 }
