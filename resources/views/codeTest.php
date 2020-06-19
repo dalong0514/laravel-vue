@@ -6,7 +6,8 @@ class ShopProduct {
     public $title = 'default product';
     public $producerMainName = 'main name';
     public $producerFirstName = 'first name';
-    public $price = 0;
+    protected $price = 0;
+    public $discount = 0;
 
     public function __construct(
         string $title,
@@ -27,6 +28,14 @@ class ShopProduct {
         $base = "{$this->title} ({$this->produceMainName}, ";
         $base .= "{$this->producerFirstName} )";
         return $base;
+    }
+
+    public function setDiscount(int $num) {
+        $this->discount = $num;
+    }
+
+    public function getPrice() {
+        return ($this->price - $this->discount);
     }
 }
 
@@ -86,6 +95,10 @@ class BookProduct extends ShopProduct {
         $base .= ": page count - {$this->numPages}";
         return $base;
     }
+
+    public function getPrice() {
+        return $this->price;
+    }
 }
 
 class ShopProductWriter {
@@ -97,11 +110,12 @@ class ShopProductWriter {
     }
 }
 
-// $product = new ShopProduct('My Antonia', 'Willa', 'Cather', '6.6');
 // $write = new ShopProductWriter();
 // $write->write($product);
 
-$product2 = new CdProduct(
+$product = new ShopProduct('My Antonia', 'Willa', 'Cather', '6.6');
+print "The price is {$product->getPrice()}\n";
+$productCd = new CdProduct(
     'Exile on Coldharbour Lane',
     'The',
     'Alabama 3',
@@ -109,4 +123,4 @@ $product2 = new CdProduct(
     0,
     60.33
 );
-print "artist: {$product2->getProducer()}";
+print "artist: {$productCd->getProducer()}\n";
