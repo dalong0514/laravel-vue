@@ -3,11 +3,11 @@
 // use APP\ShopProduct;
 
 class ShopProduct {
-    public $title = 'default product';
-    public $producerMainName = 'main name';
-    public $producerFirstName = 'first name';
+    private $title;
+    private $producerMainName;
+    private $producerFirstName;
     protected $price = 0;
-    public $discount = 0;
+    private $discount = 0;
 
     public function __construct(
         string $title,
@@ -20,22 +20,39 @@ class ShopProduct {
         $this->price = $price;
     }
 
-    public function getProducer() {
-        return $this->producerFirstName . ' ' . $this->producerMainName;
+    public function getProducerFirstName() {
+        return $this->producerFirstName;
     }
 
-    public function getSummaryLine() {
-        $base = "{$this->title} ({$this->produceMainName}, ";
-        $base .= "{$this->producerFirstName} )";
-        return $base;
+    public function getProducerMainName() {
+        return $this->producerMainName;
     }
 
     public function setDiscount(int $num) {
         $this->discount = $num;
     }
 
+    public function getDiscount() {
+        return $this->discount;
+    }
+
+    public function getTitle() {
+        return $this->title;
+    }
+
     public function getPrice() {
         return ($this->price - $this->discount);
+    }
+
+    public function getProducer() {
+        return $this->producerFirstName . ' ' 
+            . $this->producerMainName;
+    }
+
+    public function getSummaryLine() {
+        $base = "{$this->title} ({$this->produceMainName}, ";
+        $base .= "{$this->producerFirstName} )";
+        return $base;
     }
 }
 
