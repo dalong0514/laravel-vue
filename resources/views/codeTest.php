@@ -128,19 +128,23 @@ class ShopProductWriter {
     public function write() {
         $str = "";
         foreach ($this->products as $shopProduct) {
-            $str .= "{$shopProduct->title}: ";
+            $str .= "{$shopProduct->getTitle()}: ";
             $str .= $shopProduct->getProducer();
-            $str .= " ({$shopProduct->getPrice()}\n";
+            $str .= " ({$shopProduct->getPrice()})\n";
         }
         print $str;
     }
 }
 
-// $write = new ShopProductWriter();
-// $write->write($product);
-
 $product = new ShopProduct('My Antonia', 'Willa', 'Cather', '6.6');
+$product1 = new ShopProduct('My Antonia', 'Willa', 'Cather', '8.6');
 print "The price is {$product->getPrice()}\n";
+
+$write = new ShopProductWriter();
+$write->addProduct($product);
+$write->addProduct($product1);
+$write->write();
+
 $productCd = new CdProduct(
     'Exile on Coldharbour Lane',
     'The',
