@@ -179,6 +179,45 @@ class SpreadSheet extends Document {
     //
 }
 
+class Product {
+    public $name;
+    public $price;
+
+    public function __construct(string $name, float $price) {
+        $this->name = $name;
+        $this->price = $price;
+    }
+}
+
+class ProcessSale {
+    private $callbacks;
+
+    public function registerCallback(callable $callback) {
+        if (! is_callable($callback)) {
+            throw new Exception("callback not callable");
+        } 
+        $this->callbacks[] = $callback;
+    }
+
+    public function sale(Product $product) {
+        print "{$product->name}: processing \n";
+        foreach ($this->callbacks as $callback) {
+            call_user_func($callback, $product);
+        }
+    }
+}
+
+$logger = function($product) {
+    print "logging({$product->name})\n";
+};
+
+$processor = new ProcessSale();
+$processor->registerCallback($logger);
+$processor->sale(new Product("shoes", 6));
+print "\n";
+$processor->sale(new Product("coffee", 6));
+print "\n";
+
 print_r(User::create());
 print_r(SpreadSheet::create());
 
