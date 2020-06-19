@@ -3,8 +3,6 @@
 // use APP\ShopProduct;
 
 class ShopProduct {
-    public $numPages;
-    public $playLength;
     public $title = 'default product';
     public $producerMainName = 'main name';
     public $producerFirstName = 'first name';
@@ -14,15 +12,11 @@ class ShopProduct {
         string $title,
         string $firstName,
         string $mainName,
-        float $price,
-        int $numPages = 0,
-        int $playLength = 0) {
+        float $price) {
         $this->title = $title;
         $this->producerMainName = $mainName;
         $this->producerFirstName = $firstName;
         $this->price = $price;
-        $this->numPages = $numPages;
-        $this->playLength = $playLength;
     }
 
     public function getProducer() {
@@ -37,6 +31,23 @@ class ShopProduct {
 }
 
 class CdProduct extends ShopProduct {
+    public $playLength;
+
+    public function __construct(
+        string $title,
+        string $firstName,
+        string $mainName,
+        float $price,
+        int $playLength = 0) {
+        parent::__construct(
+            $title,
+            $firstName,
+            $mainName,
+            $price
+        );
+        $this->playLength = $playLength;
+    }
+
     public function getPlayLength() {
         return $this->playLength;
     }
@@ -50,6 +61,23 @@ class CdProduct extends ShopProduct {
 }
 
 class BookProduct extends ShopProduct {
+    public $numPages;
+
+    public function __construct(
+        string $title,
+        string $firstName,
+        string $mainName,
+        float $price,
+        int $numPages = 0) {
+        parent::__construct(
+            $title,
+            $firstName,
+            $mainName,
+            $price
+        );
+        $this->numPages = $numPages;
+    }
+
     function getNumberOfPages() {
         return $this->numPages;
     }
