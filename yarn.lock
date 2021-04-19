@@ -3023,8 +3023,8 @@ fibers@^4.0.2:
 
 figgy-pudding@^3.5.1:
   version "3.5.2"
-  resolved "https://registry.npm.taobao.org/figgy-pudding/download/figgy-pudding-3.5.2.tgz#b4eee8148abb01dcf1d1ac34367d59e12fa61d6e"
-  integrity sha1-tO7oFIq7Adzx0aw0Nn1Z4S+mHW4=
+  resolved "https://registry.yarnpkg.com/figgy-pudding/-/figgy-pudding-3.5.2.tgz#b4eee8148abb01dcf1d1ac34367d59e12fa61d6e"
+  integrity sha512-0btnI/H8f2pavGMN8w40mlSKOfTK2SVJmBfBeVIj3kNw0swwgzyRq0d5TJVOwodFmtvpPeWPN/MCcfuWF0Ezbw==
 
 file-loader@^2.0.0:
   version "2.0.0"
@@ -3346,7 +3346,7 @@ glob-to-regexp@^0.3.0:
   resolved "https://registry.npm.taobao.org/glob-to-regexp/download/glob-to-regexp-0.3.0.tgz#8c5a1494d2066c570cc3bfe4496175acc4d502ab"
   integrity sha1-jFoUlNIGbFcMw7/kSWF1rMTVAqs=
 
-glob@^7.0.0, glob@^7.0.3, glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glob@^7.1.4, glob@~7.1.1:
+glob@^7.0.0, glob@^7.0.3, glob@^7.1.1, glob@^7.1.2, glob@^7.1.3, glob@^7.1.4, glob@^7.1.6, glob@~7.1.1:
   version "7.1.6"
   resolved "https://registry.npm.taobao.org/glob/download/glob-7.1.6.tgz?cache=0&sync_timestamp=1573203677246&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fglob%2Fdownload%2Fglob-7.1.6.tgz#141f33b81a7c2492e125594307480c46679278a6"
   integrity sha1-FB8zuBp8JJLhJVlDB0gMRmeSeKY=
@@ -4186,6 +4186,19 @@ isstream@~0.1.2:
   version "0.1.2"
   resolved "https://registry.npm.taobao.org/isstream/download/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
+
+jasmine-core@~3.7.0:
+  version "3.7.1"
+  resolved "https://registry.yarnpkg.com/jasmine-core/-/jasmine-core-3.7.1.tgz#0401327f6249eac993d47bbfa18d4e8efacfb561"
+  integrity sha512-DH3oYDS/AUvvr22+xUBW62m1Xoy7tUlY1tsxKEJvl5JeJ7q8zd1K5bUwiOxdH+erj6l2vAMM3hV25Xs9/WrmuQ==
+
+jasmine@^3.5.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/jasmine/-/jasmine-3.7.0.tgz#d36638c0c815e6ad5666676e386d79e2ccb70835"
+  integrity sha512-wlzGQ+cIFzMEsI+wDqmOwvnjTvolLFwlcpYLCqSPPH0prOQaW3P+IzMhHYn934l1imNvw07oCyX+vGUv3wmtSQ==
+  dependencies:
+    glob "^7.1.6"
+    jasmine-core "~3.7.0"
 
 jest-worker@^25.1.0:
   version "25.2.6"
@@ -6785,9 +6798,9 @@ sshpk@^1.7.0:
     tweetnacl "~0.14.0"
 
 ssri@^6.0.1:
-  version "6.0.1"
-  resolved "https://registry.npm.taobao.org/ssri/download/ssri-6.0.1.tgz#2a3c41b28dd45b62b63676ecb74001265ae9edd8"
-  integrity sha1-KjxBso3UW2K2Nnbst0ABJlrp7dg=
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/ssri/-/ssri-6.0.2.tgz#157939134f20464e7301ddba3e90ffa8f7728ac5"
+  integrity sha512-cepbSq/neFK7xB6A50KHN0xHDotYzq58wWCa5LeWqnPrHG8GzfEjO/4O8kpmcGW+oaxkvhEJCWgbgNk4/ZV93Q==
   dependencies:
     figgy-pudding "^3.5.1"
 
